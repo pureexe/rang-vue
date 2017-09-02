@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Chat from '@/components/Chat'
 import Bots from '@/components/Bots'
 import Teach from '@/components/Teach'
+import Error from '@/components/Error'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/teach/:id',
       name: 'Teach',
       component: Teach
+    },
+    {
+      path: '/error',
+      name: 'Error',
+      component: Error
     }
   ]
 })

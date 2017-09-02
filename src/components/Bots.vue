@@ -2,7 +2,7 @@
   <div>
     <main>
       <md-list style="max-height:100vh;overflow:auto;">
-        <md-list-item v-for="bot in bots" :key="bot.id" :href="'#/bot/'+bot.id">
+        <md-list-item v-for="bot in bots" :key="bot.id"  @click="$router.push('/bot/'+bot.id)" >
           <span>{{bot.name}}</span>
           <md-button class="md-icon-button md-list-action" @click="remove(bot.id, $event)">
            <md-icon class="md-primary" >delete</md-icon>

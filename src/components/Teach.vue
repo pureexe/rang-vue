@@ -10,9 +10,10 @@ import bot from '@/models/bot'
 export default {
   name: 'Teach',
   created: function () {
-    bot.set(this.$route.params.id, function (error) {
+    let self = this
+    bot.set(this.$route.params.id, function (error, info) {
       if (error) {
-        // 404 bot not found
+        self.$router.push('/error')
       }
     })
   }
