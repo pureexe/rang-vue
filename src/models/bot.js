@@ -13,8 +13,18 @@ let bot = {
     db.bot.where('id').equals(botId).delete()
     db.conversation.where('bot').equals(botId).delete()
   },
-  set: (id) => {
-    currentBotId = id
+  set: (id, callback) => {
+    db.bot.get(parseInt(id)).then((r) => {
+      if (r === undefined && callback) {
+        callback(new Error('bot not found'))
+      }
+      if (r) {
+        currentBotId = id
+        if (callback) {
+          callback(undefined)
+        }
+      }
+    })
   },
   teach: (botId, question, reply) => {
     if (reply === undefined && currentBotId === undefined) {

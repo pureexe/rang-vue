@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Chat from '@/components/Chat'
 import Bots from '@/components/Bots'
+import Teach from '@/components/Teach'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/bot',
       name: 'Bots',
       component: Bots
+    },
+    {
+      path: '/teach/:id',
+      name: 'Teach',
+      component: Teach
     }
   ]
 })
